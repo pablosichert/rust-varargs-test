@@ -1,17 +1,11 @@
 #![feature(c_variadic)]
 
-pub unsafe extern "C" fn varargs(
-    n: usize,
-    string: *const std::os::raw::c_char,
-    mut args: ...
-) -> Vec<*const std::os::raw::c_char> {
-    let mut result = vec![string];
-    let mut varargs_list = args.as_va_list();
+pub unsafe extern "C" fn varargs(_: u32, mut args: ...) -> (u32, u32) {
+    let before = args.arg::<u32>();
 
-    for _ in 0..n {
-        let arg = varargs_list.arg::<*const std::os::raw::c_char>();
-        result.push(arg);
-    }
+    args.as_va_list().arg::<u32>();
 
-    result
+    let after = args.arg::<u32>();
+
+    (before, after)
 }

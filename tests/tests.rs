@@ -12,20 +12,16 @@ macro_rules! test {
 
 test! {
     fn varargs() {
-        let args = unsafe {
+        let (before, after) = unsafe {
             varargs::varargs(
+                0,
+                1,
                 2,
-                "foo\0".as_ptr() as *const std::os::raw::c_char,
-                "bar\0".as_ptr() as *const std::os::raw::c_char,
-                "baz\0".as_ptr() as *const std::os::raw::c_char,
+                3
             )
         };
 
-        let args = args
-            .into_iter()
-            .map(|arg| unsafe { std::ffi::CStr::from_ptr(arg).to_string_lossy() })
-            .collect::<Vec<_>>();
-
-        assert_eq!(args, vec!["foo", "bar", "baz"]);
+        assert_eq!(before, 1);
+        assert_eq!(after, 3);
     }
 }
