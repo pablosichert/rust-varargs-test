@@ -1,10 +1,7 @@
 #![feature(c_variadic)]
+#![feature(register_tool)]
+#![feature(rustc_private)]
 
-pub unsafe extern "C" fn varargs(arg: u32, mut args: ...) -> [u32; 4] {
-    let arg1 = arg;
-    let arg2 = args.arg::<u32>();
-    let arg3 = args.as_va_list().arg::<u32>();
-    let arg4 = args.arg::<u32>();
+mod variadic;
 
-    [arg1, arg2, arg3, arg4]
-}
+pub use crate::variadic::*;

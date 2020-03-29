@@ -1,0 +1,11 @@
+[
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "src/variadic.c"
+        ],
+        "directory": "/Volumes/git/com.github/pablosichert/rust-varargs-test",
+        "file": "src/variadic.c"
+    }
+]

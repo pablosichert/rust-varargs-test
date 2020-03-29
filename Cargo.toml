@@ -1,5 +1,5 @@
 [package]
-name = "varargs"
+name = "variadic"
 version = "0.1.0"
 authors = ["Pablo Sichert <pablo.sichert@westwing.de>"]
 edition = "2018"
@@ -8,6 +8,7 @@ edition = "2018"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+libc = { path = "./libc" }
 wasm-bindgen = "0.2"
 
 [dev-dependencies]
