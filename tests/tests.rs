@@ -12,7 +12,7 @@ macro_rules! test {
 
 test! {
     fn varargs() {
-        let (before, after) = unsafe {
+        let args = unsafe {
             varargs::varargs(
                 0,
                 1,
@@ -21,7 +21,6 @@ test! {
             )
         };
 
-        assert_eq!(before, 1);
-        assert_eq!(after, 3);
+        assert_eq!(args, [0, 1, 2, 3]);
     }
 }
