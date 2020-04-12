@@ -3,6 +3,7 @@
         "arguments": [
             "cc",
             "-c",
+            "-m32",
             "src/variadic.c"
         ],
         "directory": "/Volumes/git/com.github/pablosichert/rust-varargs-test",
